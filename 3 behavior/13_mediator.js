@@ -1,3 +1,4 @@
+
 //  Для тесного взаимодействия объектов друг с другом при помощи централизованной абстракции
 //  Хорошо подходит пример чатов соц.сетей
 
@@ -16,7 +17,7 @@ class User {
 	}
 }
 
-class chatRoom {
+class ChatRoom {
 	constructor() {
 		this.users = {}
 	}
@@ -38,3 +39,14 @@ class chatRoom {
 		}
 	}
 }
+const konstantin = new User('Konstantin')
+const elena = new User('Elena')
+const darja = new User('Darja')
+
+const chat = new ChatRoom()
+
+const users = [konstantin, elena, darja]
+users.forEach(user => chat.register(user))
+
+elena.send('Hello my friends! I am Elena')
+konstantin.send('Hello. I have taked your message!', elena)
